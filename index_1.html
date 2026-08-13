@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ugadu Chukwudi Peter — Operations &amp; Cybersecurity</title>
+<meta name="description" content="Ugadu Chukwudi Peter — bridging business operations and digital security. Travel &amp; Protocol Officer, cybersecurity analyst in training.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0f1a;
+    --panel:#111a2b;
+    --panel-2:#0e1522;
+    --line:#233047;
+    --green:#3ddc97;
+    --amber:#e8a23d;
+    --text:#e7ecf5;
+    --muted:#8b97ac;
+    --red:#e85d5d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.55;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px;
+    background-attachment:fixed;
+    background-position:center;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(10,15,26,0) 0%, var(--bg) 75%);
+    pointer-events:none;
+    z-index:0;
+  }
+  a{color:inherit;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  ::selection{background:var(--green);color:#04140c;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:rgba(10,15,26,0.82);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;}
+  .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;letter-spacing:0.02em;display:flex;align-items:center;gap:8px;}
+  .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+  .navlinks{display:flex;gap:28px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;}
+  .navlinks a{color:var(--muted);text-decoration:none;transition:color .2s;position:relative;}
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--green);}
+  @media (max-width:640px){.navlinks{display:none;}}
+
+  /* HERO / BADGE */
+  header.hero{padding:72px 0 40px;position:relative;}
+  .badge{
+    position:relative;
+    background:linear-gradient(160deg, var(--panel), var(--panel-2));
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:36px 32px;
+    overflow:hidden;
+  }
+  .badge::after{
+    content:"";
+    position:absolute;left:0;right:0;height:2px;
+    background:linear-gradient(90deg, transparent, var(--green), transparent);
+    top:0;
+    animation:scan 3.2s ease-in-out infinite;
+    opacity:.9;
+    box-shadow:0 0 12px var(--green);
+  }
+  @keyframes scan{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(220px);}
+    100%{transform:translateY(0);}
+  }
+  .badge-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;}
+  .status-chip{display:inline-flex;align-items:center;gap:6px;color:var(--green);border:1px solid rgba(61,220,151,.35);background:rgba(61,220,151,.08);padding:4px 10px;border-radius:20px;}
+  .status-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--green);}
+
+  .badge-body{display:flex;gap:36px;align-items:flex-start;margin-top:22px;}
+  .badge-info{flex:1;min-width:0;}
+  .badge-photo-wrap{flex-shrink:0;width:172px;}
+  .photo-frame{
+    position:relative;
+    width:172px;height:206px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--panel-2);
+    opacity:0;
+    animation:reveal .6s .05s forwards ease-out;
+  }
+  .photo-frame img{
+    width:100%;height:100%;object-fit:cover;
+    filter:grayscale(0.15) contrast(1.05);
+    display:block;
+  }
+  .photo-frame::before,.photo-frame::after,
+  .corner-tl,.corner-br{content:"";position:absolute;width:16px;height:16px;z-index:2;}
+  .corner-tl{top:-1px;left:-1px;border-top:2px solid var(--green);border-left:2px solid var(--green);border-top-left-radius:8px;}
+  .corner-br{bottom:-1px;right:-1px;border-bottom:2px solid var(--green);border-right:2px solid var(--green);border-bottom-right-radius:8px;}
+  .photo-caption{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);
+    text-align:center;margin-top:10px;letter-spacing:0.08em;text-transform:uppercase;
+  }
+  @media (max-width:640px){
+    .badge-body{flex-direction:column-reverse;align-items:center;gap:24px;}
+    .badge-info{width:100%;}
+    .badge-photo-wrap{width:150px;}
+    .photo-frame{width:150px;height:180px;}
+  }
+  h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:clamp(2.1rem, 5.5vw, 3.4rem);
+    letter-spacing:-0.01em;
+    margin:22px 0 6px;
+    opacity:0;
+    animation:reveal .6s .15s forwards ease-out;
+  }
+  .role{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--green);
+    font-size:clamp(0.85rem,2vw,1rem);
+    letter-spacing:0.04em;
+    margin-bottom:20px;
+    opacity:0;
+    animation:reveal .6s .3s forwards ease-out;
+  }
+  @keyframes reveal{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  .id-fields{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:16px;margin-top:26px;padding-top:22px;border-top:1px dashed var(--line);
+  }
+  .id-fields div .k{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:0.09em;margin-bottom:4px;}
+  .id-fields div .v{font-size:14px;color:var(--text);}
+
+  .lede{max-width:640px;color:var(--muted);font-size:16px;margin-top:20px;}
+
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px;}
+  .btn{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.03em;
+    padding:11px 18px;border-radius:8px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    border:1px solid var(--line);color:var(--text);
+    transition:border-color .2s, transform .15s, background .2s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn.primary{background:var(--green);color:#04140c;border-color:var(--green);font-weight:600;}
+  .btn.primary:hover{background:#4feaa8;}
+  .btn.ghost:hover{border-color:var(--green);color:var(--green);}
+
+  /* SECTION SCAFFOLD */
+  section{padding:56px 0;border-top:1px solid var(--line);}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--amber);
+    text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::after{content:"";flex:1;height:1px;background:var(--line);}
+  h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.4rem,3.4vw,1.9rem);font-weight:600;margin-bottom:22px;}
+
+  /* ABOUT */
+  .about-text{color:var(--muted);font-size:16px;max-width:700px;}
+  .about-text strong{color:var(--text);font-weight:600;}
+
+  /* SKILLS */
+  .skill-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
+  .skill{
+    border:1px solid var(--line);background:var(--panel-2);border-radius:10px;
+    padding:14px 16px;font-size:14px;display:flex;align-items:center;gap:10px;
+    transition:border-color .2s, background .2s;
+  }
+  .skill:hover{border-color:var(--green);background:rgba(61,220,151,.05);}
+  .skill .idx{font-family:'IBM Plex Mono',monospace;color:var(--green);font-size:11px;}
+
+  /* EXPERIENCE - LOG */
+  .log{border-left:1px solid var(--line);margin-left:6px;}
+  .entry{position:relative;padding:0 0 40px 28px;}
+  .entry:last-child{padding-bottom:4px;}
+  .entry::before{
+    content:"";position:absolute;left:-5.5px;top:4px;width:10px;height:10px;border-radius:50%;
+    background:var(--panel);border:2px solid var(--green);
+  }
+  .entry-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 16px;margin-bottom:6px;}
+  .entry-role{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;}
+  .entry-org{color:var(--green);font-size:13.5px;font-family:'IBM Plex Mono',monospace;}
+  .entry-date{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);white-space:nowrap;padding-top:3px;}
+  .entry ul{color:var(--muted);font-size:14.5px;padding-left:18px;margin-top:8px;}
+  .entry li{margin-bottom:5px;}
+
+  /* EDUCATION / CERTS */
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+  .card{
+    border:1px solid var(--line);background:var(--panel-2);border-radius:10px;padding:18px 20px;
+  }
+  .card .cert-year{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--amber);letter-spacing:.05em;}
+  .card h3{font-family:'Space Grotesk',sans-serif;font-size:15.5px;margin:6px 0 4px;font-weight:600;}
+  .card p{color:var(--muted);font-size:13.5px;}
+
+  /* LEADERSHIP + INTERESTS */
+  .pill-row{display:flex;flex-wrap:wrap;gap:10px;}
+  .pill{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);
+    border:1px solid var(--line);padding:7px 14px;border-radius:20px;
+  }
+  .lead-list{list-style:none;color:var(--muted);font-size:14.5px;}
+  .lead-list li{padding:9px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .lead-list li:last-child{border-bottom:none;}
+  .lead-list .yr{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:12px;white-space:nowrap;}
+
+  /* CONTACT / FOOTER */
+  footer{padding:60px 0 40px;border-top:1px solid var(--line);}
+  .contact-panel{
+    background:linear-gradient(160deg, var(--panel), var(--panel-2));
+    border:1px solid var(--line);border-radius:14px;padding:40px 32px;text-align:center;
+  }
+  .contact-panel h2{margin-bottom:10px;}
+  .contact-panel p{color:var(--muted);max-width:480px;margin:0 auto 26px;}
+  .contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+  .foot-note{text-align:center;color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:11.5px;margin-top:34px;letter-spacing:.03em;}
+  .foot-note a{color:var(--green);text-decoration:none;}
+
+  [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .6s ease, transform .6s ease;}
+  [data-reveal].in{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+    [data-reveal]{opacity:1;transform:none;}
+  }
+
+  :focus-visible{outline:2px solid var(--green);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> UGADU C. PETER</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="badge">
+      <div class="badge-top">
+        <span>File // Operations &amp; Security Profile</span>
+        <span class="status-chip"><span class="dot"></span> Available for opportunities</span>
+      </div>
+      <div class="badge-body">
+        <div class="badge-info">
+          <h1>Ugadu Chukwudi Peter</h1>
+          <div class="role">&gt; Business Operations · Travel &amp; Protocol · Cybersecurity Analyst-in-training</div>
+          <p class="lede">I bridge business operations and digital security — moving between coordinating high-level international travel and protocol, and analyzing network threats and vulnerabilities. My interest sits at the intersection of operational discipline and emerging technology.</p>
+
+          <div class="id-fields">
+            <div><div class="k">Based in</div><div class="v">Lagos, Nigeria</div></div>
+            <div><div class="k">Current role</div><div class="v">Travel &amp; Protocol Officer, Access Bank Plc</div></div>
+            <div><div class="k">Focus</div><div class="v">Cybersecurity &amp; Business Ops</div></div>
+            <div><div class="k">Status</div><div class="v">Open to roles</div></div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn primary" href="mailto:ugaduchukwudi1@gmail.com">Email me</a>
+            <a class="btn ghost" href="https://www.linkedin.com/in/ugadu-chukwudi-peter/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="btn ghost" href="https://x.com/ugadu135" target="_blank" rel="noopener">X / Twitter ↗</a>
+          </div>
+        </div>
+
+        <div class="badge-photo-wrap">
+          <div class="photo-frame">
+            <span class="corner-tl"></span>
+            <span class="corner-br"></span>
+            <img src="profile.jpg" alt="Portrait of Ugadu Chukwudi Peter">
+          </div>
+          <div class="photo-caption">ID · UCP‑01</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">01 — About</div>
+    <h2>Operational excellence meets security thinking</h2>
+    <p class="about-text">
+      I started my career in office and business administration, and have spent the last few years running <strong>travel, protocol, and compliance operations for Access Bank Plc</strong> — coordinating international logistics, visa processes, and executive travel at scale. In parallel, I've been building a foundation in <strong>cybersecurity</strong>: hands-on practice with network scanning, packet analysis, and threat reporting, backed by a Google Cybersecurity Professional Certificate and a security-awareness simulation with Mastercard. I'm drawn to problems where process discipline and technical vigilance meet — protecting and optimizing the systems an organization depends on.
+    </p>
+  </div>
+</section>
+
+<section id="skills" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">02 — Skills</div>
+    <h2>Toolkit</h2>
+    <div class="skill-grid">
+      <div class="skill"><span class="idx">01</span> Microsoft Office — Access, Excel, Word, PowerPoint</div>
+      <div class="skill"><span class="idx">02</span> Power BI</div>
+      <div class="skill"><span class="idx">03</span> HTML, CSS &amp; Python (basics)</div>
+      <div class="skill"><span class="idx">04</span> Network scanning — Nmap, Wireshark</div>
+      <div class="skill"><span class="idx">05</span> OSINT — Maltego</div>
+      <div class="skill"><span class="idx">06</span> Web security — Burp Suite</div>
+      <div class="skill"><span class="idx">07</span> Linux — Kali, VirtualBox / VMware</div>
+      <div class="skill"><span class="idx">08</span> Multitasking &amp; problem-solving</div>
+      <div class="skill"><span class="idx">09</span> Business &amp; time management</div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">03 — Experience</div>
+    <h2>Field log</h2>
+    <div class="log">
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><div class="entry-role">Travel and Protocol Officer</div><div class="entry-org">Workforce Group — assigned to Access Bank Plc</div></div>
+          <div class="entry-date">May 2023 — Present</div>
+        </div>
+        <ul>
+          <li>Arrange local and international flight bookings, comparing airline pricing to secure the best options for staff.</li>
+          <li>Manage visa processing for the GMD and approved staff, and liaise with Compliance on expatriate quotas, permits, and immigration documentation.</li>
+          <li>Coordinate hotel bookings, airport transfers, and ground logistics for executive and staff travel.</li>
+          <li>Maintain databases of frequent-flyer miles, ticketing, and travel records; procure travel insurance and itinerary documentation.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><div class="entry-role">Cybersecurity Intern</div><div class="entry-org">Mastercard — Virtual Experience Program, Forage</div></div>
+          <div class="entry-date">Jul 2026</div>
+        </div>
+        <ul>
+          <li>Worked a simulated role on Mastercard's Security Awareness Team, identifying and reporting phishing and related threats.</li>
+          <li>Assessed which business areas needed stronger security training and proposed courses and procedures to close the gap.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <div><div class="entry-role">Cybersecurity Intern</div><div class="entry-org">TechnoHacks EduTech</div></div>
+          <div class="entry-date">15 Jan — 16 Feb</div>
+        </div>
+        <ul>
+          <li>Set up a Kali Linux virtual machine and practiced core-to-advanced Linux commands.</li>
+          <li>Ran reconnaissance with Maltego and port/service scans with Nmap; analyzed traffic in Wireshark, including pulling credentials from unencrypted HTTP sessions.</li>
+          <li>Tested password strength using John the Ripper and Hashcat, then wrote a strong-password policy for a sample company.</li>
+          <li>Reviewed suspicious emails for phishing red flags and produced a report on how to avoid similar attacks.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="education" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">04 — Education</div>
+    <h2>Academic record</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="cert-year">2025</div>
+        <h3>BSc Business Administration (2.1)</h3>
+        <p>Ajayi Crowther University, Oyo State</p>
+      </div>
+      <div class="card">
+        <div class="cert-year">2021</div>
+        <h3>HND Office Technology &amp; Management (Upper Credit)</h3>
+        <p>Akanu Ibiam Federal Polytechnic, Unwana, Ebonyi State</p>
+      </div>
+      <div class="card">
+        <div class="cert-year">2017</div>
+        <h3>ND Office Technology &amp; Management (Distinction)</h3>
+        <p>Akanu Ibiam Federal Polytechnic, Unwana, Ebonyi State</p>
+      </div>
+      <div class="card">
+        <div class="cert-year">2014</div>
+        <h3>WAEC — Senior Secondary Certificate</h3>
+        <p>Frontline Comprehensive Secondary School, Ezzangbo, Ebonyi State</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">05 — Certifications</div>
+    <h2>Credentials</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="cert-year">2026</div>
+        <h3>Google Cybersecurity Professional Certificate</h3>
+        <p>Coursera — Google Cybersecurity Analyst training</p>
+      </div>
+      <div class="card">
+        <div class="cert-year">2022</div>
+        <h3>Business Management Certificate</h3>
+        <p>Tony Elumelu Foundation</p>
+      </div>
+      <div class="card">
+        <div class="cert-year">2018</div>
+        <h3>Google Digital Skills for Africa</h3>
+        <p>Fundamentals of Digital Marketing</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leadership" data-reveal>
+  <div class="wrap">
+    <div class="eyebrow">06 — Leadership &amp; Community</div>
+    <h2>Beyond the desk</h2>
+    <ul class="lead-list">
+      <li><span>Prayer Coordinator, Anglican Corper Fellowship</span><span class="yr">Nov 2022 — Feb 2023</span></li>
+      <li><span>Editor-in-Chief, NAOTMS Polyunwana Chapter</span><span class="yr">2016/2017</span></li>
+      <li><span>Youth Leader, St. Andrew Anglican Church</span><span class="yr">2017 — 2018</span></li>
+      <li><span>Chief Usher, All Saints Anglican Church</span><span class="yr">2019 — 2021</span></li>
+      <li><span>Ishiba Entrepreneurship Development Centre — Workshop</span><span class="yr">2018</span></li>
+    </ul>
+    <div style="height:22px"></div>
+    <div class="pill-row">
+      <span class="pill">Research</span>
+      <span class="pill">Volunteering</span>
+      <span class="pill">Teamwork</span>
+      <span class="pill">Reading</span>
+    </div>
+  </div>
+</section>
+
+<footer id="contact" data-reveal>
+  <div class="wrap">
+    <div class="contact-panel">
+      <h2>Let's talk</h2>
+      <p>Open to roles in cybersecurity, operations, and travel &amp; protocol management. Reach out directly or connect on socials.</p>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:ugaduchukwudi1@gmail.com">ugaduchukwudi1@gmail.com</a>
+        <a class="btn ghost" href="tel:+2348141360824">+234 814 136 0824</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/ugadu-chukwudi-peter/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn ghost" href="https://x.com/ugadu135" target="_blank" rel="noopener">X / Twitter ↗</a>
+      </div>
+    </div>
+    <p class="foot-note">© <span id="year"></span> Ugadu Chukwudi Peter · Built with care · <a href="#about">Back to top ↑</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
